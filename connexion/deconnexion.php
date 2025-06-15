@@ -7,6 +7,6 @@ session_unset();
 session_destroy();
 
 // Rediriger vers la page d'accueil
-header('Location: /code/portfolio/accueil/accueil.html');
+header('Location: /accueil/index.html');
 exit;
 ?>

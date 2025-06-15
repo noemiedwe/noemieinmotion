@@ -1,16 +1,16 @@
 <?php
 session_start();
-include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+include '../connexion/connexionDB.php';
 
 // Récupérez les critères de tri du formulaire
 $type = isset($_POST['id_type']) ? $_POST['id_type'] : '';
 $annee_but = isset($_POST['annee_but']) ? $_POST['annee_but'] : '';
 $date_ajout = isset($_POST['date_ajout']) ? $_POST['date_ajout'] : '';
-$apprentissage_critique = isset($_POST['apprentissage_critique']) ? $_POST['apprentissage_critique'] : '';
-$competence_but = isset($_POST['competence_but']) ? $_POST['competence_but'] : '';
+$titre = isset($_POST['titre']) ? $_POST['titre'] : '';
+$competence = isset($_POST['competence']) ? $_POST['competence'] : '';
 
 // Construisez la requête SQL pour récupérer les traces triées
-$sql = "SELECT * FROM Traces WHERE 1=1";
+$sql = "SELECT * FROM traces WHERE 1=1";
 
 if (!empty($type)) {
     $sql .= " AND id_type = '" . $conn->real_escape_string($type) . "'";
@@ -22,10 +22,10 @@ if (!empty($date_ajout)) {
     $sql .= " AND date = '" . $conn->real_escape_string($date_ajout) . "'";
 }
 if (!empty($apprentissage_critique)) {
-    $sql .= " AND apprentissage_critique = '" . $conn->real_escape_string($apprentissage_critique) . "'";
+    $sql .= " AND titre = '" . $conn->real_escape_string($titre) . "'";
 }
 if (!empty($competence_but)) {
-    $sql .= " AND competence = '" . $conn->real_escape_string($competence_but) . "'";
+    $sql .= " AND competence = '" . $conn->real_escape_string($competence) . "'";
 }
 
 $result = $conn->query($sql);

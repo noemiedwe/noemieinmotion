@@ -1,5 +1,5 @@
 <?php
-include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+include '../connexion/connexionDB.php';
 
 setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
 

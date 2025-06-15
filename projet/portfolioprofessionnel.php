@@ -14,8 +14,8 @@
 <nav class="navbar navbar-expand-lg navbar-custom px-3">
   <button conclick="window.history.back()">Retour</button>
   <div class="navbar-nav me-auto">
-    <a class="nav-link text-white" href="/code/portfolio/accueil/accueil.html">Accueil</a>
-    <a class="nav-link text-white" href="/code/portfolio/connexion/connexion.php">Connexion</a>
+    <a class="nav-link text-white" href="../accueil/index.html">Accueil</a>
+    <a class="nav-link text-white" href="../connexion/connexion.php">Connexion</a>
   </div>
 </nav>
     <section>
@@ -28,9 +28,9 @@
            <h2>Projets</h2>
     <div class="projects-container">
     <?php
-    include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+    include '../connexion/connexionDB.php';
 
-    $sql = "SELECT * FROM Traces";
+    $sql = "SELECT * FROM traces";
     $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -67,7 +67,5 @@
     </div>
 </table>
     </section>
-    
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

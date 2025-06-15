@@ -11,7 +11,7 @@
     $role = $_SESSION['role'] ?? 'inconnu';
 
 
-    $id_trace = ['id_trace'];
+    $id_trace = 41;
     ?>
     <nav class="navbar navbar-expand-lg navbar-custom px-3">
   <button onclick="window.history.back()">Retour</button>
@@ -25,15 +25,15 @@
     <div class="projects-container">
         <div class="project-card">
             <div class="project-image">
-               <p><img src="{fichier}" alt="Image du projet"></p>
+               <p><img src="uploads/49e962f7-2cbe-4c0f-af2f-e5a8773951c7.png" alt="Image du projet"></p>
             </div>
     <div class="project-details">
-        <h1>{titre} </h1>
+        <h1>Titre : rezrejkerzj </h1>
         <div>
-        <p><strong>Année de BUT:</strong> {annee_but}</p>
-        <p><strong>Compétence :</strong> {competence}</p>
-        <p class="description"> {argumentaire}</p>
-        <p>{date}</p>
+        <p><strong>Année de BUT:</strong> fsqhjshf</p>
+        <p><strong>Compétence :</strong> </p>
+        <p class="description"> sdfnfh</p>
+        <p><strong>Date:</strong> 5667-05-23</p>
         </div>
     </div>
 </section>

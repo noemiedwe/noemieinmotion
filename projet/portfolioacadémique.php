@@ -17,18 +17,18 @@
     $_GET['Visiteur'] == 1){
         $_SESSION['id_utilisateur'] = '1';
         $_SESSION['role'] ='Visiteur';
-        header("Location: /code/portfolio/projet/portfolioacadémique.php");
+        header("Location: portfolioacadémique.php");
         exit;
     }
 ?>
 <nav class="navbar navbar-expand-lg navbar-custom px-3">
   <button onclick="window.history.back()">Retour</button>
   <div class="navbar-nav me-auto">
-    <a class="nav-link text-white" href="/code/portfolio/accueil/accueil.html">Accueil</a>
-    <a class="nav-link text-white" href="/code/portfolio/connexion/deconnexion.php">Déconnexion</a>
+    <a class="nav-link text-white" href="/accueil/index.html">Accueil</a>
+    <a class="nav-link text-white" href="/connexion/deconnexion.php">Déconnexion</a>
     <?php
             if (isset($_SESSION['role']) && $_SESSION['role'] === 'Concepteur') {
-                echo '<a class="nav-link text-white" href="/code/portfolio/connexion/role.php">Profil</a>';
+                echo '<a class="nav-link text-white" href="role.php">Profil</a>';
             }
             ?>
   </div>
@@ -42,7 +42,7 @@
 <section>
      <?php if ($role === 'Concepteur'): ?>
         <h3>Ajouter un Projet</h3>
-        <form action="/code/portfolio/projet/ajoutprojet.php" method="post" enctype="multipart/form-data">
+        <form action="/projet/ajoutprojet.php" method="post" enctype="multipart/form-data">
             <label for="numero_immatriculation">id :</label>
             <input type="text" id="numero_immatriculation" name="numero_immatriculation" required>
             <br>
@@ -62,9 +62,9 @@
             <label for="annee_but">Année de BUT:</label>
             <select id="annee_but" name="annee_but" required>
                 <option value="" disabled selected>Choisissez une année</option>
-                <option value="BUT1">BUT MMI 1</option>
-                <option value="BUT2">BUT MMI 2</option>
-                <option value="BUT3">BUT MMI 3</option>
+                <option value="BUT MMI 1">BUT MMI 1</option>
+                <option value="BUT MMI 2">BUT MMI 2</option>
+                <option value="BUT MMI 3">BUT MMI 3</option>
             </select>
             <br>
             <label for="competence">Compétence :</label>
@@ -84,6 +84,8 @@
         <?php endif; ?>
         <h1>Trier</h1>
     <form action="traitement_tri_traces.php" method="post">
+        <label for="titre">Titre :</label>
+        <input type="text" id="titre" name="titre">
         <label for="id_type">Type :</label>
         <select id="id_type" name="id_type">
             <option value="">Tous les types</option>
@@ -96,9 +98,9 @@
         <label for="annee_but">Année de BUT :</label>
         <select id="annee_but" name="annee_but">
             <option value="">Toutes les années</option>
-            <option value="BUT1">BUT MMI 1</option>
-            <option value="BUT2">BUT MMI 2</option>
-            <option value="BUT3">BUT MMI 3</option>
+            <option value="BUT MMI 1">BUT MMI 1</option>
+            <option value="BUT MMI 2">BUT MMI 2</option>
+            <option value="BUT MMI 3">BUT MMI 3</option>
         </select>
         <label for="date_ajout">Date d'Ajout :</label>
         <input type="date" id="date_ajout" name="date_ajout">
@@ -110,9 +112,9 @@
     <h2>Projets</h2>
     <div class="projects-container">
     <?php
-    include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+    include '../connexion/connexionDB.php';
 
-    $sql = "SELECT * FROM Traces";
+    $sql = "SELECT * FROM traces";
     $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -126,7 +128,7 @@
             if (file_exists($fichier) && is_file($fichier)) {
                 $info = getimagesize($fichier);
                 if ($info !== false) {
-                    echo "<img src='".$fichier."' alt='Image' style='max-width: 100px; max-height: 100px;'>";
+                    echo "<img src='".$fichier."' alt='Image' style='max-width: 200px; max-height: 200px;'>";
                 } else {
                     echo "<a href='".$fichier."'>Télécharger le fichier</a>";
                 }
@@ -153,6 +155,5 @@
     </div>
 </table>
 </section>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

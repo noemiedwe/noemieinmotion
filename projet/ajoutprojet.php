@@ -1,9 +1,9 @@
 <?php
 session_start();
-include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+include '../connexion/connexionDB.php';
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Concepteur') {
-    header("Location: accueil.html");
+    header("Location: /accueil/index.html");
     exit();
 }
 
@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titre = isset($_POST['titre']) ? $_POST['titre'] : null;
     $type = isset($_POST['id_type']) ? $_POST['id_type'] : null;
     $annee_but = isset($_POST['annee_but']) ? $_POST['annee_but'] : null;
-     $annee_but = isset($_POST['competence']) ? $_POST['competence'] : null;
+     $competence = isset($_POST['competence']) ? $_POST['competence'] : null;
     $argumentaire = isset($_POST['argumentaire']) ? $_POST['argumentaire'] : null;
     $dateprojet = isset($_POST['date']) ? $_POST['date'] : null;
     $id_utilisateur = $_SESSION['id_utilisateur'];
@@ -38,13 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($numero_immatriculation && $type && $annee_but && $argumentaire && $dateprojet) {
-        $stmt = $conn->prepare("INSERT INTO Traces (numero_immatriculation, titre, id_type, id_utilisateur, annee_but, competence, argumentaire, date, fichier) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO traces (numero_immatriculation, titre, id_type, id_utilisateur, annee_but, competence, argumentaire, date, fichier) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssssss", $numero_immatriculation, $titre, $type, $id_utilisateur, $annee_but, $competence, $argumentaire, $dateprojet, $chemin_destination);
 
         if ($stmt->execute()) {
             $id_trace = $stmt->insert_id;
 
-            $contenu_page = file_get_contents('projet.php');
+            $contenu_page = file_get_contents('../projet/projet.php');
             $contenu_page = str_replace('{numero_immatriculation}', htmlspecialchars($numero_immatriculation), $contenu_page);
             $contenu_page = str_replace('{titre}', htmlspecialchars($titre), $contenu_page);
             $contenu_page = str_replace('{id_type}', htmlspecialchars($type), $contenu_page);
@@ -54,14 +54,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $contenu_page = str_replace('{date}', htmlspecialchars($dateprojet), $contenu_page);
             $contenu_page = str_replace('{fichier}', htmlspecialchars($chemin_destination), $contenu_page);
 
-            $nom_fichier_page = 'projet_' . $id_trace . '.php';
-            $chemin_fichier_page = 'C:/wamp/www/code/portfolio/projet/' . $nom_fichier_page;
+            $nom_fichier_page = '../projet/projet_' . $id_trace . '.php';
+            $chemin_fichier_page = '../projet/' . $nom_fichier_page;
 
             if (!file_put_contents($chemin_fichier_page, $contenu_page)) {
                 die("Erreur: Impossible de créer la page du projet.");
             }
 
-            header("Location: /code/portfolio/projet/portfolioacadémique.php");
+            header("Location: ../projet/portfolioacadémique.php");
             exit();
         } else {
             echo "Erreur: " . $stmt->error;

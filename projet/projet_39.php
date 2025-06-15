@@ -11,13 +11,13 @@
     $role = $_SESSION['role'] ?? 'inconnu';
 
 
-    $id_trace = ['id_trace'];
+    $id_trace = 39;
     ?>
     <nav class="navbar navbar-expand-lg navbar-custom px-3">
   <button onclick="window.history.back()">Retour</button>
   <div class="navbar-nav me-auto">
     <a class="nav-link text-white" href="../accueil/index.html">Accueil</a>
-    <a class="nav-link text-white" href="../projet/portfolioacadémique.php">Portfolio académique</a>
+    <a class="nav-link text-white" href="portfolioacadémique.php">Portfolio académique</a>
     <a class="nav-link text-white" href="../connexion/deconnexion.php">Déconnexion</a>
   </div>
 </nav>
@@ -25,19 +25,20 @@
     <div class="projects-container">
         <div class="project-card">
             <div class="project-image">
-               <p><img src="{fichier}" alt="Image du projet"></p>
+               <p><img src="uploads/ChatGPT Image 13 juin 2025, 14_48_42.png" alt="Image du projet"></p>
             </div>
     <div class="project-details">
-        <h1>{titre} </h1>
+        <h1>Titre : rhieeih </h1>
         <div>
-        <p><strong>Année de BUT:</strong> {annee_but}</p>
-        <p><strong>Compétence :</strong> {competence}</p>
-        <p class="description"> {argumentaire}</p>
-        <p>{date}</p>
+        <p><strong>Année de BUT:</strong> rzuzrh</p>
+        <p><strong>Compétence :</strong> </p>
+        <p class="description"> kzqfksq</p>
+        <p><strong>Date:</strong> 5455-04-23</p>
         </div>
     </div>
 </section>
 <section>
+
         <?php if ($role === 'Concepteur' || $role === 'Évaluateur'): ?>
             <div class="comments-section">
                 <h4>Commentaires</h4>

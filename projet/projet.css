@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,9 +7,10 @@
 body {
     font-family: "Inika", serif;
     overflow-x: hidden;
+    background-color: #FFDFDF;
 }
 
-nav{
+nav {
     background-color: #F370FF;
     padding: 10px 20px;
     height: 100px;
@@ -18,57 +19,56 @@ nav{
     align-items: center;
 }
 
-nav a{
+nav a {
     color: black;
     text-decoration: none;
     padding: 10px 15px;
     font-size: 18px;
     font-weight: 700;
-  font-style: normal;
-  background-color: #F370FF;
+    font-style: normal;
+    background-color: #F370FF;
 }
 
-nav a:hover{
+nav a:hover {
     color: white;
     border-radius: 5px;
 }
 
-.nav-links{
+.nav-links {
     display: flex;
     gap: 200px;
-     background-color: #F370FF;
+    background-color: #F370FF;
 }
 
-button{
+button {
     background-color: #F310CA;
-        color: black;
-        padding: 10px 25px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 18px;
-        font-family: "inika";
-        cursor: pointer;
-        transition: transform 0.2s ease-in-out;
+    color: black;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: "Inika", sans-serif;
+    transition: transform 0.2s ease-in-out;
 }
 
-button:hover{
+button:hover {
     background-color: #d811b3;
     transform: scale(1.1);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.div1{
-    background-color: #FFDFDF ;
+.div1 {
+    background-color: #FFDFDF;
     padding: 50px;
 }
 
-section{
-    justify-content: center; /* Centre horizontalement */
+section {
+    justify-content: center;
     align-items: center;
 }
 
-.project-details{
+.project-details {
     padding: 10px;
     flex: 1;
     display: flex;
@@ -76,7 +76,7 @@ section{
     justify-content: center;
 }
 
-h1{
+h1 {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 5px;
@@ -85,7 +85,7 @@ h1{
 .projects-container {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espace entre les cartes */
+    gap: 20px;
     padding: 20px;
 }
 
@@ -96,13 +96,11 @@ h1{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     justify-content: center;
-    width: 75%;
-    max-width: 600px;
+    width: 100%;
 }
 
 .project-image {
-    width: 150px;
-    height: 150px;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,10 +119,6 @@ h1{
 .project-details p {
     margin: 10px 0;
     color: #666;
-}
-
-.description{
-    background-color: #fcd9ff;
 }
 
 .comments-section {
@@ -210,12 +204,60 @@ h1{
     background-color: #ff52a2;
 }
 
-.reponse-author, .reponse-date{
+.reponse-author, .reponse-date {
     margin: 5px 0;
     font-size: 0.9em;
     color: #666;
 }
 
-.reponse{
+.reponse {
     margin-left: 15px;
+}
+
+/* Media query pour les tablettes */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 100px;
+    }
+
+    .project-card {
+        flex-direction: column;
+    }
+
+    .project-image {
+        width: 100%;
+    }
+}
+
+/* Media query pour les mobiles */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .div1 {
+        padding: 20px;
+    }
+
+    .project-card {
+        flex-direction: column;
+    }
+
+    .project-image {
+        width: 100%;
+    }
+
+    .comments-section, .comment-form, .comment {
+        width: 95%;
+        margin: 10px auto;
+    }
 }

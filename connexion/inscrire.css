@@ -42,11 +42,11 @@ nav a:hover {
 button {
     background-color: #F310CA;
     color: black;
-    padding: 10px 15px;
+    padding: 10px 25px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 18px;
     font-family: "Inika", sans-serif;
     transition: transform 0.2s ease-in-out;
 }
@@ -57,49 +57,30 @@ button:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.div1 {
-    background-color: #FFDFDF;
-    padding: 50px;
+.h2 {
+    margin-bottom: 20px;
 }
 
-.h1 {
+.Inscription {
     position: relative;
-    text-align: center;
-    font-size: 32px;
-}
-
-.p1 {
-    position: relative;
-    text-align: center;
-    font-size: 13px;
-}
-
-.projects-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
+    left: 620px;
+    top: 100px;
+    background: #FFDFDF;
     padding: 20px;
-    flex-wrap: wrap; 
-}
-
-.project-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 250px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
     text-align: center;
-    justify-content: space-between;
-    box-sizing: border-box;
 }
 
-.project-card h3 {
-    margin-top: 0;
-    color: #333;
-}
-
-.project-card p {
-    color: #666;
+input {
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /* Media query pour les tablettes */
@@ -108,8 +89,10 @@ button:hover {
         gap: 100px;
     }
 
-    .projects-container {
-        gap: 15px;
+    .Inscription {
+        left: 0;
+        top: 50px;
+        margin: 0 auto;
     }
 }
 
@@ -128,21 +111,9 @@ button:hover {
         text-align: center;
     }
 
-    .div1 {
-        padding: 20px;
-    }
-
-    .h1 {
-        font-size: 24px;
-    }
-
-    .projects-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .project-card {
+    .Inscription {
+        position: static;
         width: 90%;
-        margin-bottom: 20px;
+        margin: 20px auto;
     }
 }

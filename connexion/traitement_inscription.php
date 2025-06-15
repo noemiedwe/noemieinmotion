@@ -1,6 +1,12 @@
 <?php
 session_start();
-include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+$servername = "localhost";
+$username = "u148474356_root1";
+$password = "Minou007.newt";
+$dbname = "u148474356_portfoliouser";
+
+// Créer une connexion
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nom = $_POST['nom'];
@@ -12,11 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $mot_de_passe_hache = password_hash($mot_de_passe, PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("INSERT INTO Utilisateurs (nom, prenom, email, nom_utilisateur, mot_de_passe, role) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO utilisateurs (nom, prenom, email, nom_utilisateur, mot_de_passe, role) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $nom, $prenom, $email, $nom_utilisateur, $mot_de_passe_hache, $role);
 
     if ($stmt->execute()) {
-        header("Location: \code\portfolio\projet\portfolioacadémique.php");
+        header("Location: \projet\portfolioacadémique.php");
         exit;
     } else {
         echo "❌ Erreur: " . $stmt->error;

@@ -1,7 +1,7 @@
 <?php
-include 'connexionDB.php';
+include '/connexion/connexionDB.php';
 
-$sql = "SELECT * FROM Traces";
+$sql = "SELECT * FROM traces";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

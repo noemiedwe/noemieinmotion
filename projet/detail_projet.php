@@ -1,5 +1,5 @@
 <?php
-include 'connexionDB.php';
+include '../connexion/connexionDB.php';
 
 $id_trace = $_GET['id'];
 

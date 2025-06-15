@@ -1,8 +1,8 @@
 <?php
 session_start();
-include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+include '../connexion/connexionDB.php';
 
-// Récupérer les données du formulaire
+$id_trace = $_GET['id_trace'];
 $id_commentaire = $_POST['id_commentaire'];
 $utilisateur = $_SESSION['utilisateur']; // Assurez-vous que l'utilisateur est connecté
 $reponse = $_POST['reponse'];
@@ -13,15 +13,12 @@ if (!isset($_POST['id_commentaire']) || !isset($_POST['utilisateur']) || !isset(
 }
 
 // Insérer la réponse dans la base de données
-$sql = "INSERT INTO reponses (id_commentaire, utilisateur, reponse, date_reponse) VALUES (?, ?, ?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("isss", $id_commentaire, $utilisateur, $reponse, $date_reponse);
+$sql = "INSERT INTO reponses (id_trace, utilisateur, reponse, date_reponse, id_commentaire) VALUES ('$id_trace', '$utilisateur', '$reponse', '$date_reponse', '$id_commentaire')";
 
-if ($stmt->execute()) {
-    // Rediriger vers la page des commentaires après l'ajout de la réponse
-    header("Location: afficher_commentaires.php");
+if ($conn->query($sql) === TRUE) {
+    header("Location: " . $_SERVER['HTTP_REFERER']); // Redirige vers la page précédente
 } else {
-    echo "Erreur: " . $stmt->error;
+    echo "Erreur: " . $sql . "<br>" . $conn->error;
 }
 
 $stmt->close();

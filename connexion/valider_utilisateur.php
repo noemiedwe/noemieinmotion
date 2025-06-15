@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+include 'connexionDB.php';
 
 if (!isset($_GET['id'])) {
     die("ID de l'utilisateur non spécifié.");
@@ -21,6 +21,6 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $conn->close();
-header("Location: role.php");
+header("Location: ../projet/role.php");
 exit;
 ?>

@@ -1,5 +1,5 @@
 <?php
-include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+include '../connexion/connexionDB.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_trace = isset($_POST['id_trace']) ? $_POST['id_trace'] : null;
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if (file_exists($fichier) && is_file($fichier)) {
                         $info = getimagesize($fichier);
                         if ($info !== false) {
-                            echo "<img src='".htmlspecialchars($fichier)."' alt='Image du projet' style='max-width: 300px;'>";
+                            echo "<img src='".htmlspecialchars($fichier)."' alt='Image du projet' style='max-width: 500px;'>";
                         } else {
                             echo "<a href='".htmlspecialchars($fichier)."'>Télécharger le fichier</a>";
                         }

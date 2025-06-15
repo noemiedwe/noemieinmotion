@@ -1,11 +1,11 @@
 <?php
 session_start();
-include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+include 'connexionDB.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifiez si l'utilisateur est un concepteur
     if ($_SESSION['role'] !== 'Concepteur') {
-        header("Location: /code/portfolio/accueil/accueil.html");
+        header("Location: /accueil.html");
         exit();
     }
 
@@ -32,6 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
-header("Location: role.php");
+header("Location: ../projet/role.php");
 exit;
 ?>

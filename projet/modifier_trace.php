@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+include '../connexion/connexionDB.php';
 
 if (!isset($_GET['id'])) {
     die("ID de trace non spécifié.");
@@ -46,6 +46,9 @@ $conn->close();
         <label for="argumentaire">Description :</label>
         <input type="text" id="argumentaire" name="argumentaire" value="<?php echo htmlspecialchars($row['argumentaire']); ?>" required>
         <br>
+        <label for="fichier">fichier :</label>
+            <input type="file" id="fichier" name="fichier" accept="image/*,video/*">
+            <br>
         <button type="submit">Modifier</button>
     </form>
 </body>

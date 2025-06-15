@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,31 +11,34 @@
     <?php
     session_start();
     setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
-    include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+    include '../connexion/connexionDB.php';
 
     // Assurez-vous que l'utilisateur est connecté
     if (!isset($_SESSION['utilisateur'])) {
         $_SESSION['utilisateur'] = 'prenom';
     }
+    //die($id_trace);
+
 
     // Vérifiez si l'ID du projet est spécifié dans l'URL
     if (!isset($_GET['id_trace'])) {
         die("ID du projet non spécifié.");
     }
 
-    $id_trace = $_GET['id_trace'];
 
-    $sql = "SELECT * FROM traces WHERE id_trace = ?";
+    //$id_trace = $_GET['id_trace'];
+
+    $sql = "SELECT * FROM commentaires WHERE id_trace = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id_trace);
 $stmt->execute();
 $result = $stmt->get_result();
 
+
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $trace = $result->fetch_assoc();
             echo '<div class="comment">';
-            echo "ID de la trace: " . htmlspecialchars($trace['id_trace']) . "<br>";
             echo '<p class="comment-author">Utilisateur: ' . htmlspecialchars($row['utilisateur']) . '</p>';
             echo '<p class="comment-date">Date: ' . htmlspecialchars(strftime("%d %B %Y", strtotime($row['date_commentaire']))) . '</p>';
             echo '<p class="comment-text">' . htmlspecialchars($row['commentaire']) . '</p>';
@@ -57,6 +61,13 @@ $result = $stmt->get_result();
             $stmt_reponses->bind_param("i", $row['id']);
             $stmt_reponses->execute();
             $result_reponses = $stmt_reponses->get_result();
+            
+            
+  $sql = "SELECT * FROM reponses WHERE id_trace = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id_trace);
+$stmt->execute();
+$result = $stmt->get_result();
 
             if ($result_reponses->num_rows > 0) {
                 while ($row_reponse = $result_reponses->fetch_assoc()) {

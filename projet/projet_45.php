@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Projet - <?php echo $id_trace; ?></title>
+    <title>Projet - 45</title>
     <link rel="stylesheet" href="projet.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
     $role = $_SESSION['role'] ?? 'inconnu';
 
 
-    $id_trace = ['id_trace'];
+    $id_trace = 45;
     ?>
     <nav class="navbar navbar-expand-lg navbar-custom px-3">
   <button onclick="window.history.back()">Retour</button>
@@ -25,15 +25,16 @@
     <div class="projects-container">
         <div class="project-card">
             <div class="project-image">
-               <p><img src="{fichier}" alt="Image du projet"></p>
+               <p><img src="uploads/audit.png" alt="Image du projet"></p>
             </div>
     <div class="project-details">
-        <h1>{titre} </h1>
+        <h1>Audit Lou-Rêve </h1>
         <div>
-        <p><strong>Année de BUT:</strong> {annee_but}</p>
-        <p><strong>Compétence :</strong> {competence}</p>
-        <p class="description"> {argumentaire}</p>
-        <p>{date}</p>
+        <p><strong>Année de BUT:</strong> BUT MMI 1 </p>
+        <p><strong>Compétence :</strong>comprendre </p>
+        <p class="description"> https://www.canva.com/design/DAGZ3SvfmBE/Rg6q2NNVC18hOotOGeoIBw/edit?utm_content=DAGZ3SvfmBE&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=sharebutton
+Dans la cadre de la SAE 1.01, on a dû faire un audit sur un des courts métrage sélectionnés pout le festival Toulon Tout Court. On était par group de 3 et chacun à fait une partie de l&#039;audit ( dans l&#039;image et dans le son ). Ce travaille nous a permis d&#039;approfondir notre technique d&#039;analyse de film. </p>
+        <p>2024-12-20</p>
         </div>
     </div>
 </section>

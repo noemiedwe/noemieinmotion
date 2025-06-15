@@ -1,13 +1,13 @@
 <?php
 session_start();
-include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+include 'connexionDB.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nom_utilisateur = $_POST['nom_utilisateur'];
     $mot_de_passe = $_POST['mot_de_passe'];
     $role = $_POST['role'];
 
-    $stmt = $conn->prepare("SELECT id_utilisateur, mot_de_passe, role FROM Utilisateurs WHERE nom_utilisateur = ?");
+    $stmt = $conn->prepare("SELECT id_utilisateur, mot_de_passe, role FROM utilisateurs WHERE nom_utilisateur = ?");
     $stmt->bind_param("s", $nom_utilisateur);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['id_utilisateur'] = $row['id_utilisateur'];
             $_SESSION['nom_utilisateur'] = $nom_utilisateur;
             $_SESSION['role'] = $role;
-            header("Location: \code\portfolio\projet\portfolioacadémique.php");
+            header("Location: \projet\portfolioacadémique.php");
         } else {
             echo "Email, mot de passe ou rôle incorrect.";
         }
