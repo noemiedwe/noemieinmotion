@@ -7,6 +7,10 @@ session_unset();
 session_destroy();
 
 // Rediriger vers la page d'accueil
+<<<<<<< ours
+header('Location: ../accueil/accueil.html');
+=======
 header('Location: /code/portfolio/accueil/accueil.html');
+>>>>>>> theirs
 exit;
 ?>

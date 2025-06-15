@@ -1,6 +1,10 @@
 <?php
 session_start();
+<<<<<<< ours
+include '../connexion/connexionDB.php';
+=======
 include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+>>>>>>> theirs
 
 if (!isset($_GET['id'])) {
     die("ID de l'utilisateur non spécifié.");
