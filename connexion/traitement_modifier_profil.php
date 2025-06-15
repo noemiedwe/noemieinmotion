@@ -1,11 +1,19 @@
 <?php
 session_start();
+<<<<<<< ours
+include '../connexion/connexionDB.php';
+=======
 include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+>>>>>>> theirs
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifiez si l'utilisateur est un concepteur
     if ($_SESSION['role'] !== 'Concepteur') {
+<<<<<<< ours
+        header("Location: ../accueil/accueil.html");
+=======
         header("Location: /code/portfolio/accueil/accueil.html");
+>>>>>>> theirs
         exit();
     }
 

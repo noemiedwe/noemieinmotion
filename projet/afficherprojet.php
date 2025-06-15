@@ -1,7 +1,11 @@
 <?php
 include 'connexionDB.php';
 
+<<<<<<< ours
+$sql = "SELECT * FROM traces";
+=======
 $sql = "SELECT * FROM Traces";
+>>>>>>> theirs
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

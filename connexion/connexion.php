@@ -15,12 +15,20 @@
     <nav>
         <div class="nav-links">
             <button onclick="window.history.back()">retour</button>
+<<<<<<< ours
+            <a href="../accueil/accueil.html">accueil</a>
+=======
             <a href="/code/portfolio/accueil/accueil.html">accueil</a>
+>>>>>>> theirs
         </div>
     </nav>
     <div class="login-container">
     <h2 class="h2">Connexion</h2>
+<<<<<<< ours
+    <form action="../connexion/traitement_connexion.php" method="Post" class="formulaire">
+=======
     <form action="/code/portfolio/connexion/traitement_connexion.php" method="Post" class="formulaire">
+>>>>>>> theirs
         <label for="nom_utilisateur">Nom d'utilisateur :</label>
         <input type="text" id="nom_utilisateur" name="nom_utilisateur" required>
         <br><br>
@@ -37,10 +45,17 @@
         <button type="submit">se connecter</button> 
     </form>
     <br>
+<<<<<<< ours
+    <p>pas de compte ? <a href="../connexion/inscription/inscrire.html">s'inscrire</a></p>
+    <br>
+
+    <p>Si vous êtes un visiteur, <a href="../projet/portfolioacadémique.php?Visiteur=1">cliquez ici</a>.</p>
+=======
     <p>pas de compte ? <a href="/code/portfolio/connexion/inscription/inscrire.html">s'inscrire</a></p>
     <br>
 
     <p>Si vous êtes un visiteur, <a href="/code/portfolio/projet/portfolioacadémique.php?Visiteur=1">cliquez ici</a>.</p>
+>>>>>>> theirs
     </div>
 </body>
 </html>

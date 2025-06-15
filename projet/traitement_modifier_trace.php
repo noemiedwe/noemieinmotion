@@ -1,6 +1,10 @@
 <?php
 session_start();
+<<<<<<< ours
+include '../connexion/connexionDB.php';
+=======
 include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+>>>>>>> theirs
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_trace = $_POST['id_trace'];
@@ -26,6 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
+<<<<<<< ours
+header("Location: ../projet/portfolioacadémique.php");
+=======
 header("Location: /code/portfolio/projet/portfolioacadémique.php");
+>>>>>>> theirs
 exit;
 ?>

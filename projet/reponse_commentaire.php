@@ -1,6 +1,10 @@
 <?php
 session_start();
+<<<<<<< ours
+include '../connexion/connexionDB.php';
+=======
 include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+>>>>>>> theirs
 
 // Récupérer les données du formulaire
 $id_commentaire = $_POST['id_commentaire'];
