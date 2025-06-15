@@ -14,15 +14,25 @@
     if (!isset($_GET['id_trace'])) {
         die("ID du projet non spécifié.");
     }
+<<<<<<< ours
+    $id_trace = {id_trace};
+=======
     $id_trace = $stmt->insert_id;
     $id_trace = $_GET['id_trace'];
+>>>>>>> theirs
     ?>
     <nav class="navbar navbar-expand-lg navbar-custom px-3">
   <button onclick="window.history.back()">Retour</button>
   <div class="navbar-nav me-auto">
+<<<<<<< ours
+    <a class="nav-link text-white" href="../accueil/accueil.html">Accueil</a>
+    <a class="nav-link text-white" href="portfolioacadémique.php">Portfolio académique</a>
+    <a class="nav-link text-white" href="../connexion/deconnexion.php">Déconnexion</a>
+=======
     <a class="nav-link text-white" href="/code/portfolio/accueil/accueil.html">Accueil</a>
     <a class="nav-link text-white" href="portfolioacadémique.php">Portfolio académique</a>
     <a class="nav-link text-white" href="/code/portfolio/connexion/deconnexion.php">Déconnexion</a>
+>>>>>>> theirs
   </div>
 </nav>
 <section>

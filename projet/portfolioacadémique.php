@@ -17,18 +17,30 @@
     $_GET['Visiteur'] == 1){
         $_SESSION['id_utilisateur'] = '1';
         $_SESSION['role'] ='Visiteur';
+<<<<<<< ours
+        header("Location: ../projet/portfolioacadémique.php");
+=======
         header("Location: /code/portfolio/projet/portfolioacadémique.php");
+>>>>>>> theirs
         exit;
     }
 ?>
 <nav class="navbar navbar-expand-lg navbar-custom px-3">
   <button onclick="window.history.back()">Retour</button>
   <div class="navbar-nav me-auto">
+<<<<<<< ours
+    <a class="nav-link text-white" href="../accueil/accueil.html">Accueil</a>
+    <a class="nav-link text-white" href="../connexion/deconnexion.php">Déconnexion</a>
+    <?php
+            if (isset($_SESSION['role']) && $_SESSION['role'] === 'Concepteur') {
+                echo '<a class="nav-link text-white" href="../connexion/role.php">Profil</a>';
+=======
     <a class="nav-link text-white" href="/code/portfolio/accueil/accueil.html">Accueil</a>
     <a class="nav-link text-white" href="/code/portfolio/connexion/deconnexion.php">Déconnexion</a>
     <?php
             if (isset($_SESSION['role']) && $_SESSION['role'] === 'Concepteur') {
                 echo '<a class="nav-link text-white" href="/code/portfolio/connexion/role.php">Profil</a>';
+>>>>>>> theirs
             }
             ?>
   </div>
@@ -42,7 +54,11 @@
 <section>
      <?php if ($role === 'Concepteur'): ?>
         <h3>Ajouter un Projet</h3>
+<<<<<<< ours
+        <form action="../projet/ajoutprojet.php" method="post" enctype="multipart/form-data">
+=======
         <form action="/code/portfolio/projet/ajoutprojet.php" method="post" enctype="multipart/form-data">
+>>>>>>> theirs
             <label for="numero_immatriculation">id :</label>
             <input type="text" id="numero_immatriculation" name="numero_immatriculation" required>
             <br>
@@ -105,14 +121,24 @@
         <label for="competence">Compétence du BUT :</label>
         <input type="text" id="competence" name="competence">
         <br>
+<<<<<<< ours
+        <button type="submit">Trier les traces</button>
+=======
         <button type="submit">Trier les Traces</button>
+>>>>>>> theirs
     </form>
     <h2>Projets</h2>
     <div class="projects-container">
     <?php
+<<<<<<< ours
+    include '../connexion/connexionDB.php';
+
+    $sql = "SELECT * FROM traces";
+=======
     include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
 
     $sql = "SELECT * FROM Traces";
+>>>>>>> theirs
     $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -136,7 +162,11 @@
             echo '
                 <form action="afficher_projet.php" method="post">
                     <input type="hidden" name="id_trace" value='.$row["id_trace"].'>
+<<<<<<< ours
+                    <button type="show">Voir le projet</button>
+=======
                     <a href="projet_' . $row["id_trace"] . '.php">Voir le projet</a>
+>>>>>>> theirs
                 </form>';
             if ($_SESSION['role'] === 'Concepteur') {
                 echo '<a href="modifier_trace.php?id=' . $row['id_trace'] . '">Modifier</a> | ';

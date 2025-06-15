@@ -1,6 +1,10 @@
 <?php
 session_start();
+<<<<<<< ours
+include '../connexion/connexionDB.php';
+=======
 include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+>>>>>>> theirs
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Concepteur') {
     header("Location: accueil.html");
@@ -38,13 +42,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($numero_immatriculation && $type && $annee_but && $argumentaire && $dateprojet) {
+<<<<<<< ours
+        $stmt = $conn->prepare("INSERT INTO traces (numero_immatriculation, titre, id_type, id_utilisateur, annee_but, competence, argumentaire, date, fichier) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+=======
         $stmt = $conn->prepare("INSERT INTO Traces (numero_immatriculation, titre, id_type, id_utilisateur, annee_but, competence, argumentaire, date, fichier) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+>>>>>>> theirs
         $stmt->bind_param("sssssssss", $numero_immatriculation, $titre, $type, $id_utilisateur, $annee_but, $competence, $argumentaire, $dateprojet, $chemin_destination);
 
         if ($stmt->execute()) {
             $id_trace = $stmt->insert_id;
 
             $contenu_page = file_get_contents('projet.php');
+<<<<<<< ours
+            $contenu_page = str_replace('{id_trace}', htmlspecialchars($id_trace), $contenu_page);
+=======
+>>>>>>> theirs
             $contenu_page = str_replace('{numero_immatriculation}', htmlspecialchars($numero_immatriculation), $contenu_page);
             $contenu_page = str_replace('{titre}', htmlspecialchars($titre), $contenu_page);
             $contenu_page = str_replace('{id_type}', htmlspecialchars($type), $contenu_page);
@@ -55,13 +67,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $contenu_page = str_replace('{fichier}', htmlspecialchars($chemin_destination), $contenu_page);
 
             $nom_fichier_page = 'projet_' . $id_trace . '.php';
+<<<<<<< ours
+            $chemin_fichier_page = '../projet/' . $nom_fichier_page;
+=======
             $chemin_fichier_page = 'C:/wamp/www/code/portfolio/projet/' . $nom_fichier_page;
+>>>>>>> theirs
 
             if (!file_put_contents($chemin_fichier_page, $contenu_page)) {
                 die("Erreur: Impossible de créer la page du projet.");
             }
 
+<<<<<<< ours
+            header("Location: ../projet/portfolioacadémique.php");
+=======
             header("Location: /code/portfolio/projet/portfolioacadémique.php");
+>>>>>>> theirs
             exit();
         } else {
             echo "Erreur: " . $stmt->error;

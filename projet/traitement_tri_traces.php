@@ -1,6 +1,10 @@
 <?php
 session_start();
+<<<<<<< ours
+include '../connexion/connexionDB.php';
+=======
 include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+>>>>>>> theirs
 
 // Récupérez les critères de tri du formulaire
 $type = isset($_POST['id_type']) ? $_POST['id_type'] : '';
@@ -10,6 +14,44 @@ $apprentissage_critique = isset($_POST['apprentissage_critique']) ? $_POST['appr
 $competence_but = isset($_POST['competence_but']) ? $_POST['competence_but'] : '';
 
 // Construisez la requête SQL pour récupérer les traces triées
+<<<<<<< ours
+$sql = "SELECT * FROM traces WHERE 1=1";
+$params = [];
+$types = '';
+
+if (!empty($type)) {
+    $sql .= " AND id_type = ?";
+    $params[] = $type;
+    $types .= 's';
+}
+if (!empty($annee_but)) {
+    $sql .= " AND annee_but = ?";
+    $params[] = $annee_but;
+    $types .= 's';
+}
+if (!empty($date_ajout)) {
+    $sql .= " AND date = ?";
+    $params[] = $date_ajout;
+    $types .= 's';
+}
+if (!empty($apprentissage_critique)) {
+    $sql .= " AND apprentissage_critique = ?";
+    $params[] = $apprentissage_critique;
+    $types .= 's';
+}
+if (!empty($competence_but)) {
+    $sql .= " AND competence = ?";
+    $params[] = $competence_but;
+    $types .= 's';
+}
+
+$stmt = $conn->prepare($sql);
+if (!empty($params)) {
+    $stmt->bind_param($types, ...$params);
+}
+$stmt->execute();
+$result = $stmt->get_result();
+=======
 $sql = "SELECT * FROM Traces WHERE 1=1";
 
 if (!empty($type)) {
@@ -29,6 +71,7 @@ if (!empty($competence_but)) {
 }
 
 $result = $conn->query($sql);
+>>>>>>> theirs
 header("Location: portfolioacadémique.php");
 exit;
 ?>

@@ -10,7 +10,11 @@
     <?php
     session_start();
     setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+<<<<<<< ours
+    include '../connexion/connexionDB.php';
+=======
     include 'C:/wamp/www/code/portfolio/connexion/connexionDB.php';
+>>>>>>> theirs
 
     // Assurez-vous que l'utilisateur est connecté
     if (!isset($_SESSION['utilisateur'])) {
@@ -24,19 +28,36 @@
 
     $id_trace = $_GET['id_trace'];
 
+<<<<<<< ours
+    $sql = "SELECT commentaires.*, utilisateurs.nom_utilisateur FROM commentaires JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id_utilisateur WHERE id_trace = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id_trace);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if (!$result) {
+        die("Erreur lors de la récupération des commentaires: " . $conn->error);
+    }
+=======
     $sql = "SELECT * FROM traces WHERE id_trace = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id_trace);
 $stmt->execute();
 $result = $stmt->get_result();
+>>>>>>> theirs
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $trace = $result->fetch_assoc();
             echo '<div class="comment">';
+<<<<<<< ours
+            echo '<p class="comment-author">Utilisateur: ' . htmlspecialchars($row['nom_utilisateur']) . '</p>';
+            $date = new DateTime($row['date_commentaire']);
+            echo '<p class="comment-date">Date: ' . htmlspecialchars($date->format('d F Y')) . '</p>';
+=======
             echo "ID de la trace: " . htmlspecialchars($trace['id_trace']) . "<br>";
             echo '<p class="comment-author">Utilisateur: ' . htmlspecialchars($row['utilisateur']) . '</p>';
             echo '<p class="comment-date">Date: ' . htmlspecialchars(strftime("%d %B %Y", strtotime($row['date_commentaire']))) . '</p>';
+>>>>>>> theirs
             echo '<p class="comment-text">' . htmlspecialchars($row['commentaire']) . '</p>';
             echo '<a href="#" class="reply-link" onclick="toggleReplyForm(' . $row['id'] . ')">Répondre</a>';
             echo '<div id="reply-form-' . $row['id'] . '" class="reply-form" style="display: none;">';
@@ -62,7 +83,12 @@ $result = $stmt->get_result();
                 while ($row_reponse = $result_reponses->fetch_assoc()) {
                     echo '<div class="reponse">';
                     echo '<p class="reponse-author">Utilisateur: ' . htmlspecialchars($row_reponse['utilisateur']) . '</p>';
+<<<<<<< ours
+                    $date = new DateTime($row['date_commentaire']);
+                    echo '<p class="reponse-date">Date: ' . htmlspecialchars($date->format('d F Y')) . '</p>';
+=======
                     echo '<p class="reponse-date">Date: ' . htmlspecialchars(strftime("%d %B %Y", strtotime($row_reponse['date_reponse']))) . '</p>';
+>>>>>>> theirs
                     echo '<p class="reponse-text">' . htmlspecialchars($row_reponse['reponse']) . '</p>';
                     echo '</div>';
                 }
